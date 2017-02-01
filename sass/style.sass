@@ -1,0 +1,63 @@
+#environment
+  position: fixed
+  width: 100%
+  height: 100%
+  perspective: 500px
+  perspective-origin: center center
+
+#scene-container
+  position: absolute
+  width: 100%
+  height: 100%
+  z-index: 1
+  transform: translate3d(0, 0, 0px)
+  transform-style: preserve-3d
+  backface-visibility: hidden;
+
+#scene-container .scene
+  display: block
+  position: absolute
+  top: 50%
+  left: 50%
+  width: 100%
+  height: 100%
+  background-position: 50% 50%
+  background-repeat: no-repeat
+  background-size: cover
+  transform-style: preserve-3d
+  opacity: 1
+
+  &.first
+    background-image: url('../images/section5.png')
+    transform: translate3d(-50%, -50%, -500px)
+    z-index: 7
+
+  &.second
+    background-image: url('../images/section4.png')
+    transform: translate3d(-50%, -50%, -1500px)
+    z-index: 6
+
+  &.third
+    background-image: url('../images/section3.png')
+    transform: translate3d(-50%, -50%, -2500px)
+    z-index: 5
+
+  &.fourth
+    background-image: url('../images/section2.png')
+    transform: translate3d(-50%, -50%, -3500px)
+    z-index: 4
+
+  &.fifth
+    background-image: url('../images/section1.png')
+    transform: translate3d(-50%, -50%, -4500px)
+    z-index: 3
+
+  &.about
+    transform: translate3d(-50%, -50%, -5500px)
+    z-index: 2
+
+#scroll-overlay
+  position: relative
+  width: 100%
+  height: 7500px
+  z-index: 2
