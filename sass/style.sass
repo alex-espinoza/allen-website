@@ -1,8 +1,30 @@
+@keyframes text-drop
+  0%
+    transform: translateY(0rem)
+  0%, 10%
+    transform: translateY(8rem)
+  12%, 22%
+    transform: translateY(16rem)
+  24%, 34%
+    transform: translateY(24rem)
+  36%, 46%
+    transform: translateY(32rem)
+  48%, 58%
+    transform: translateY(40rem)
+  60%, 70%
+    transform: translateY(48rem)
+  72%, 82%
+    transform: translateY(56rem)
+  84%, 94%
+    transform: translateY(64rem)
+  100%
+    transform: translateY(64rem)
+
 #environment
   position: fixed
   width: 100%
   height: 100%
-  perspective: 500px
+  perspective: 1000px
   perspective-origin: center center
 
 #scene-container
@@ -55,6 +77,76 @@
   &.about
     transform: translate3d(-50%, -50%, -5500px)
     z-index: 2
+
+#scene-container .scene.about .text-swap-container
+  position: absolute
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+  width: 100%
+  overflow: hidden
+
+  ul
+    display: inline-block
+    position: relative
+    width: 100%
+    min-height: 8rem
+    text-align: center
+    font-size: 8rem
+    line-height: 8rem
+    transform: translateY(0rem)
+
+  ul li
+    position: absolute
+    width: 100%
+    opacity: 1
+
+  ul li:nth-child(1)
+    top: 0rem
+
+  ul li:nth-child(2)
+    top: -8rem
+
+  ul li:nth-child(3)
+    top: -16rem
+
+  ul li:nth-child(4)
+    top: -24rem
+
+  ul li:nth-child(5)
+    top: -32rem
+
+  ul li:nth-child(6)
+    top: -40rem
+
+  ul li:nth-child(7)
+    top: -48rem
+
+  ul li:nth-child(8)
+    top: -56rem
+
+#scene-container .scene.about.active .text-swap-container ul
+  animation-name: text-drop
+  animation-direction: normal
+  animation-iteration-count: 1
+  animation-duration: 2.2s
+  animation-fill-mode: forwards
+  animation-timing-function: linear
+
+#scene-container .scene.about .content-container
+  position: relative
+  width: 80%
+  height: 100%
+  margin: 0 auto
+  transform: translateY(6rem)
+  opacity: 0
+
+#scene-container .scene.about.active .content-container
+  transform: translateY(0rem)
+  opacity: 1
+  transition: transform 1s, opacity 1s
+  transition-delay: 2.1s, 2.1s
+  transition-timing-function: cubic-bezier(0.23, 1.07, 0.58, 1)
 
 #scroll-overlay
   position: relative

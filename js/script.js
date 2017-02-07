@@ -7,6 +7,7 @@ var secondSceneElement = document.querySelector("#scene-container .scene.second"
 var thirdSceneElement = document.querySelector("#scene-container .scene.third");
 var fourthSceneElement = document.querySelector("#scene-container .scene.fourth");
 var fifthSceneElement = document.querySelector("#scene-container .scene.fifth");
+var aboutSceneElement = document.querySelector("#scene-container .scene.about")
 
 // var webDesignSectionTweenTimeline = new TimelineMax();
 // webDesignSectionTweenTimeline.add([
@@ -30,6 +31,7 @@ new ScrollMagic.Scene({
 })
 .setTween(sceneContainer, 1, {z: 5500})
 .addIndicators({name: "zooming sections"})
+.on("end", zoomingSectionScenesDone)
 .addTo(controller);
 
 new ScrollMagic.Scene({
@@ -76,3 +78,8 @@ new ScrollMagic.Scene({
 .setTween(fifthSceneElement, 1, {opacity: 0})
 .addIndicators({name: "fade fifth section"})
 .addTo(controller);
+
+function zoomingSectionScenesDone(event) {
+  controller.destroy();
+  aboutSceneElement.classList.add("active");
+}
